@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <title>Document</title>
+
+    <style> 
+        body{
+            background-color: yellow;
+        }
+        #body_div{
+              background-color: black;
+            padding: 15%;
+            display: flex;
+            justify-content: center;
+            margin-top: 350px;
+        }    
+        #div_button{
+            display: inline;
+            position: fixed;
+            background-color: aqua;
+            margin-top:1%;
+            margin-left: 17%;
+        }
+
+        #star-six {
+                width: 0;
+                height: 0;
+                border-left: 50px solid transparent;
+                border-right: 50px solid transparent;
+                border-bottom: 100px solid red;
+                position: relative;
+                
+            }
+        #star-six:after {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-top: 100px solid red;
+            position: absolute;
+            content: "";
+            top: 30px;
+            left: -50px;
+        }
+        
+      
+        
+    </style>
+
+</head>
+<body>
+  
+    
+    
+    
+    <div id="body_div">
+        <div  id="star-six" >
+
+        </div>
+        
+       
+    </div>
+ 
+      <div id="div_button">
+            <button id="hide">HIDE</button>
+            <button id="show">SHOW</button>
+            <button id="slide_down">slide down</button>
+            <button id="slide_up">slide up</button>
+            <button id="fade_out">fade out</button>
+            <button id="fade_in">fade in</button>
+            <button id="deque">deque</button>
+        </div>
+    
+    <script>
+        //при клике
+        //скрыть элемент
+        $("#hide").click(function(){
+             $("#star-six").hide(1000);                  
+        });
+        //показать элемент
+        $("#show").click(function(){
+            $("#star-six").show(1000); 
+        });
+        //сдвинуть элемент вниз
+        $("#slide_down").click(function(){
+              $("#star-six").slideDown();
+        });
+        //сдвинуть элемент вверх
+        $("#slide_up").click(function(){
+              $("#star-six").slideUp(1400);
+        });
+        //исчезновение внутрь
+         $("#fade_out").click(function(){
+              $("#star-six").fadeOut();
+        });
+        //появление обратно
+        $("#fade_in").click(function(){
+              $("#star-six").fadeIn();
+        });
+        //
+        $("#deque").click(function(){
+             var div = $("#star-six");
+            div.animate({height: 300}, "slow");
+            div.animate({width: 300}, "slow");
+            div.queue(function(){
+              div.css("background-color", "green");  
+              div.dequeue();
+            });
+            div.animate({height: 0}, "slow");
+            div.animate({width: 0}, "slow");
+        });
+        //$("#star-six").click(function(){
+          //  $("#star-six").hide(1000);
+        //});
+        
+    </script>
+
+
+</body>
+</html>
